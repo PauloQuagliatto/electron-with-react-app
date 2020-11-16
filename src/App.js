@@ -1,10 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
+import { ipcRenderer } from 'electron'
 
 function App() {
+  const comunicateWithBackend = () => {
+    ipcRenderer.send('notify', 'hellow')
+  }
   return (
     <div className="App">
       <header className="App-header">
+        <button onClick={comunicateWithBackend}></button>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
